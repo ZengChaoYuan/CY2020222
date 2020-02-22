@@ -67,6 +67,10 @@
     <display-name>CodeFilter</display-name>
     <filter-name>CodeFilter</filter-name>
     <filter-class>com.cyzy.util.CodeFilter</filter-class>
+    <init-param>
+     <param-name>code</param-name>
+     <param-value>UTF-8</param-value>
+    </init-param>
   </filter>
   <filter-mapping>
     <filter-name>CodeFilter</filter-name>

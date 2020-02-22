@@ -74,9 +74,8 @@ public class RoleServlet extends HttpServlet {
 	// 查询角色业务
 	private void queryRoleList(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
+		
 		RoleDao roleDao = new RoleDaoImpl();
 		Role role = new Role();
 		List<Role> roleList = roleDao.queryRole(role);

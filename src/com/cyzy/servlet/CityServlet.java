@@ -29,7 +29,6 @@ public class CityServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		String cityAction=request.getParameter("cityAction");
 		if(cityAction != null && cityAction.equals("list")) {
 			cityList(request,response);
@@ -37,9 +36,9 @@ public class CityServlet extends HttpServlet {
 	}
 	private void cityList(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
 		//·ÀÖ¹ÂÒÂë
-		request.setCharacterEncoding("UTF-8");
+	
 		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
+		
 		List<City> cityList=new ArrayList<City>();
 		
 		City city1=new City(1,"¸£½¨Ê¡",0);
@@ -66,7 +65,7 @@ public class CityServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 

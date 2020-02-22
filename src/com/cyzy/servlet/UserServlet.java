@@ -1,13 +1,7 @@
 package com.cyzy.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +13,7 @@ import com.cyzy.dao.RoleDao;
 import com.cyzy.dao.RoleDaoImpl;
 import com.cyzy.dao.UserDao;
 import com.cyzy.dao.UserDaoImpl;
-import com.cyzy.service.UserService;
-import com.cyzy.util.DBUtil;
-import com.cyzy.util.ServiceFactory;
+
 
 /**
  * Servlet implementation class UserServlet
@@ -43,7 +35,7 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html");
 		String userAction = request.getParameter("userAction");
 		if (userAction != null && userAction.equals("login")) {
 			login(request, response);
@@ -69,9 +61,7 @@ public class UserServlet extends HttpServlet {
 	private void userDetail(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// ·ÀÖ¹ÂÒÂë
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
 
 		String userId = request.getParameter("userId");
 		UserDao userDao = new UserDaoImpl();
@@ -83,9 +73,7 @@ public class UserServlet extends HttpServlet {
 
 	private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// ·ÀÖ¹ÂÒÂë
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
 
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
@@ -104,9 +92,7 @@ public class UserServlet extends HttpServlet {
 	private void addBefore(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// ·ÀÂÒÂë
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
 		RoleDao roleDao = new RoleDaoImpl();
 		Role role = new Role();
 		List<Role> roleList = roleDao.queryRole(role);
@@ -118,10 +104,7 @@ public class UserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		
-		// ·ÀÂÒÂë
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
 
 		String userId = request.getParameter("userId");
 		String userName = request.getParameter("userName");
@@ -146,9 +129,7 @@ public class UserServlet extends HttpServlet {
 	// Ö´ÐÐÐÞ¸Ä²Ù×÷Ç°
 	private void updateBefore(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
 		String userId = request.getParameter("userId");
 		UserDao userDao = new UserDaoImpl();
 		User user = (User) userDao.getUserById(Integer.parseInt(userId));
@@ -159,9 +140,7 @@ public class UserServlet extends HttpServlet {
 
 	private void updateUser(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
 		// String userId=request.getParameter("userId");
 		// UserService
 		// userService=(UserService)ServiceFactory.getServiceImpl(UserService.class.getName());
@@ -189,9 +168,7 @@ public class UserServlet extends HttpServlet {
 
 	private void deleteUser(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
 
 		String userId = request.getParameter("userId");
 		UserDao userdao = new UserDaoImpl();
@@ -207,10 +184,7 @@ public class UserServlet extends HttpServlet {
 
 	private void queryUserList(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// ·ÀÖ¹ÂÒÂë
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
 		// UserService
 		// userService=(UserService)ServiceFactory.getServiceImpl(UserService.class.getName());
 		// List<User> users=userService.queryUser(userId);
@@ -227,7 +201,6 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

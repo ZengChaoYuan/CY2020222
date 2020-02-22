@@ -37,7 +37,6 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		String loginAction=request.getParameter("loginAction");
 		if (loginAction != null && loginAction.equals("login")) {
 			login(request,response);
@@ -48,11 +47,7 @@ public class LoginServlet extends HttpServlet {
 	
 	private void login(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
-		
-		
 		
 		//查询用户是不是存在
 		String userName=request.getParameter("userName");
@@ -86,10 +81,8 @@ public class LoginServlet extends HttpServlet {
 	}
 	
 	private void loginOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
-		
+
 		HttpSession session=request.getSession();
 		session.removeAttribute("loginUser");
 		response.sendRedirect("http://localhost:8080/JF190902/index.jsp");
@@ -99,7 +92,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 

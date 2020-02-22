@@ -64,9 +64,7 @@ public class GoodsServlet extends HttpServlet {
 	}
 	private void queryGoodsList(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
 		GoodsDao goodsDao=new GoodsDaoImpl();
 		Goods goods=new Goods();
 		List<Goods> goodsList=goodsDao.queryGoods(goods);
