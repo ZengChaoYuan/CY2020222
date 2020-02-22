@@ -53,16 +53,16 @@ public class SessionFilter implements Filter {
 			chain.doFilter(request, response);//执行下一个过滤器，没有下一个过滤器，就直接访问到目标servlet
 		}else {
 			//比如登录界面、登录servlet请求，是不需要登录状态就可以直接访问的
-			if(user!=null) {
+			if(user == null) {
 				//没有经过servlet,所以还是要写
 				response.setContentType("text/html");
-				request.setCharacterEncoding("UTF-8");
-				
+				response.setCharacterEncoding("UTF-8");
 				PrintWriter out =response.getWriter();
 				out.println("<script>");
 				out.println("window.alert('会话失效了!');");
-				out.println("window.top.location.href='"+req.getContextPath()+"/index.jsp';");
+				out.println("window.parent.location.href='"+req.getContextPath()+"/index.jsp';");
 				out.println("</script>");
+				//res.sendRedirect(req.getContextPath()+"/index.jsp");
 				
 			}else {
 				chain.doFilter(request, response);//执行下一个过滤器，没有下一个过滤器，就直接访问到目标servlet
