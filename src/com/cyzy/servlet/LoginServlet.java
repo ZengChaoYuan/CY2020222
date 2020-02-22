@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 	    	ServletContext context=this.getServletContext();
 	    	context.setAttribute("userCount", userCount);
 			HttpSession session=request.getSession();
-			//session.setMaxInactiveInterval(10);//超时时间以秒为单位
+			session.setMaxInactiveInterval(10);//超时时间以秒为单位
 			session.setAttribute("loginUser", user);
 			//还要查询此用户所拥有的菜单
 			//菜单列表扔到request/session范围
