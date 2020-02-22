@@ -61,15 +61,18 @@
   </filter>
   <filter-mapping>
     <filter-name>SessionFilter</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/SessionFilter</url-pattern>
   </filter-mapping>
+  <session-config>  
+      <session-timeout>30</session-timeout>  
+  </session-config> 
   <filter>
     <display-name>CodeFilter</display-name>
     <filter-name>CodeFilter</filter-name>
     <filter-class>com.cyzy.util.CodeFilter</filter-class>
     <init-param>
-     <param-name>code</param-name>
-     <param-value>UTF-8</param-value>
+      <param-name>code</param-name>
+      <param-value>UTF-8</param-value>
     </init-param>
   </filter>
   <filter-mapping>
