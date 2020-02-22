@@ -68,8 +68,6 @@ public class SessionFilter implements Filter {
 				chain.doFilter(request, response);//执行下一个过滤器，没有下一个过滤器，就直接访问到目标servlet
 			}
 		}
-		
-		
 	}
 
 	/**
